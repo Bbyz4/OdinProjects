@@ -1,3 +1,10 @@
+const scoreboard = document.querySelectorAll('.score');
+const display = document.querySelector('#display');
+const winner = document.querySelector('#winner');
+const buttons = document.querySelectorAll('button');
+let playersScore = 0;
+let computersScore = 0;
+
 function GetComputerChoice()
 {
     let a = Math.random()*3;
@@ -24,23 +31,34 @@ function Result(userChoice, computersChoice)
     }
     else if((userChoice=="rock" && computersChoice=="scissors")||(userChoice=="scissors" && computersChoice=="paper")||(userChoice=="paper" && computersChoice=="rock"))
     {
+        playersScore++;
         return "You win! " + userChoice + " beats " + computersChoice + "\n";
     }
     else
     {
+        computersScore++;
         return "You lose! " + computersChoice + " beats " + userChoice + "\n";
     }
 }
 
-function Game()
-{
-    let z = parseInt(prompt("How many rounds do you want to play?"));
-    for(var i=0; i<z; i++)
+function Game(s,t)
+{    
+    if(Math.max(playersScore, computersScore)<5)
     {
-        let s = prompt("Rock, paper or scissors?");
-        let t = GetComputerChoice();
-        console.log(Result(s, t));
+    display.textContent = Result(s,t);
+    scoreboard[0].textContent = "Player's score: " + playersScore;
+    scoreboard[1].textContent = "Computer's score: " + computersScore;
+    if(playersScore==5)
+    {
+        winner.textContent = "PLAYER WINS!";
+    }
+    if(computersScore==5)
+    {
+        winner.textContent = "COMPUTER WINS!";
+    }
     }
 }
 
-Game();
+buttons[0].addEventListener("click", () => {Game('rock', GetComputerChoice())});
+buttons[1].addEventListener("click", () => {Game('paper', GetComputerChoice())});
+buttons[2].addEventListener("click", () => {Game('scissors', GetComputerChoice())});
