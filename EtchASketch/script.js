@@ -21,11 +21,18 @@ function NewBoard(q)
     let gridSize = 16;
     if(!q)
     {
-        gridSize = parseInt(prompt("What grid size do you want?"));
+        do
+        {
+        gridSize = parseInt(prompt("What grid size do you want?", 16));
+        }while(!Number.isInteger(gridSize));
     }
     if(gridSize>100)
     {
         gridSize=100;
+    }
+    if(gridSize<1)
+    {
+        gridSize=1;
     }
     let pixelSize = 480/gridSize;
     for(let i=0; i<gridSize; i++)
@@ -42,6 +49,5 @@ function NewBoard(q)
         }
     }
 }
-//newgrid.addEventListener('click', () => NewBoard(false));
 
 NewBoard(true);
