@@ -1,7 +1,9 @@
 const canvas = document.querySelector('#canvas');
 const newgrid = document.querySelector('#newgrid');
-
+const oneColorButton = document.querySelector('#black');
+const rainbowButton = document.querySelector('#rainbow');
 let isMouseDown = false;
+let oneColorMode = false;
 document.addEventListener('mousedown', () => {isMouseDown=true});
 document.addEventListener('mouseup', () => {isMouseDown=false});
 
@@ -10,9 +12,33 @@ function ChangeColour(elem, wasClicked)
 {
     if(wasClicked || isMouseDown)
     {
-        elem.style.backgroundColor = "black";
+        if(oneColorMode)
+        {
+            elem.style.backgroundColor = "black";
+        }
+        else
+        {
+            elem.style.backgroundColor = "rgb(" + Math.random()*255 + "," + Math.random()*255 + "," + Math.random()*255 + ")";
+        }
     }
 }
+
+function ChangeMode(one)
+{
+    if(one && !oneColorMode)
+    {
+        oneColorMode = true;
+        oneColorButton.style.backgroundColor = "lightgreen";
+        rainbowButton.style.backgroundColor = "white";
+    }
+    if(!one && oneColorMode)
+    {
+        oneColorMode = false;
+        oneColorButton.style.backgroundColor = "white";
+        rainbowButton.style.backgroundColor = "lightgreen";
+    }
+}
+
 
 function NewBoard(q)
 {  
@@ -34,7 +60,7 @@ function NewBoard(q)
     {
         gridSize=1;
     }
-    let pixelSize = 480/gridSize;
+    let pixelSize = 550/gridSize;
     for(let i=0; i<gridSize; i++)
     {
         for(let j=0; j<gridSize; j++)
@@ -43,7 +69,7 @@ function NewBoard(q)
         div.classList.add("pixel");
         div.style.width = pixelSize + "px";
         div.style.height = pixelSize + "px";
-        div.addEventListener('mousemove', () => ChangeColour(div, false));
+        div.addEventListener('mouseenter', () => ChangeColour(div, false));
         div.addEventListener('mousedown', () => ChangeColour(div, true));
         canvas.append(div);
         }
@@ -51,3 +77,4 @@ function NewBoard(q)
 }
 
 NewBoard(true);
+ChangeMode(true);

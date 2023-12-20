@@ -10,6 +10,10 @@
 <body>
     <h1>Etch-a-Sketch</h1>
     <div id="canvas"></div>
-    <button id="newgrid" onclick="NewBoard()">NEW GRID</button>
+    <div id="buttons">
+    <button id="newgrid" onclick="NewBoard(false)">NEW GRID</button>
+    <button id="black" onclick="ChangeMode(true)">ONE COLOR MODE</button>
+    <button id="rainbow" onclick="ChangeMode(false)">RAINBOW MODE</button>
+    </div>
 </body>
 </html>
