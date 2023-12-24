@@ -16,32 +16,32 @@
             </div>
         </div>
         <div id="row2" class="row">
-            <button class="clear">CLEAR</button>
+            <button class="clear" onclick="Clear()">CLEAR</button>
             <button class="operation">BACK</button>
-            <button class="operation">/</button>
+            <button class="operation" onclick="Operate('/')">/</button>
         </div>
         <div id="row3" class="row">
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operation">X</button>
+            <button class="number" onclick="NumberClicked(7)">7</button>
+            <button class="number" onclick="NumberClicked(8)">8</button>
+            <button class="number" onclick="NumberClicked(9)">9</button>
+            <button class="operation" onclick="Operate('X')">X</button>
         </div>
         <div id="row4" class="row">
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operation">-</button>
+            <button class="number" onclick="NumberClicked(4)">4</button>
+            <button class="number" onclick="NumberClicked(5)">5</button>
+            <button class="number" onclick="NumberClicked(6)">6</button>
+            <button class="operation" onclick="Operate('-')">-</button>
         </div>
         <div id="row5" class="row">
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="operation">+</button>
+            <button class="number" onclick="NumberClicked(1)">1</button>
+            <button class="number" onclick="NumberClicked(2)">2</button>
+            <button class="number" onclick="NumberClicked(3)">3</button>
+            <button class="operation" onclick="Operate('+')">+</button>
         </div>
         <div id="row6" class="row">
-            <button class="number">.</button>
-            <button class="number">0</button>
-            <button class="equals">=</button>
+            <button class="number" onclick="Decimal()">.</button>
+            <button class="number" onclick="NumberClicked(0)">0</button>
+            <button class="equals" onclick="Operate('=')">=</button>
         </div>
     </div>
 </body>

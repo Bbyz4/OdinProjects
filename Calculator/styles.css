@@ -40,6 +40,7 @@ button{
 
 #display{
     width: 97%;
+    max-width: 97%;
     height: 90%;
     background-color: white;
     text-align: right;
@@ -51,7 +52,7 @@ button{
 
 #main{
     padding: 10px;
-    font-size: 60px;
+    font-size: 55px;
 }
 
 #secondary{
@@ -61,7 +62,7 @@ button{
 }
 
 .operation, .number{
-    width: 23%;
+    width: 22.5%;
     height: 90%;
 }
 
