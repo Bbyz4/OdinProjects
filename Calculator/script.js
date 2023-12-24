@@ -157,5 +157,33 @@ function Operate(c)
     UpdateDisplay();
 }
 
+function ChangeSign()
+{
+    if(typingFirst && firstNumber!="0")
+    {
+        if(firstNumber[0]!='-')
+        {
+            firstNumber = "-" + firstNumber;
+        }
+        else
+        {
+            firstNumber = firstNumber.substring(1, firstNumber.length);
+        }
+    }
+    
+    if(!typingFirst && secondNumber!="0")
+    {
+        if(secondNumber[0]!='-')
+        {
+            secondNumber = "-" + secondNumber;
+        }
+        else
+        {
+            secondNumber = secondNumber.substring(1, secondNumber.length);
+        }
+    }
+    UpdateDisplay();
+}
+
 mainDisplay.textContent = "0";
 secondDisplay.textContent = "";
