@@ -15,7 +15,7 @@ body{
 #calculator{
     width: 600px;
     height: 900px;
-    border: 10px solid white;
+    border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;

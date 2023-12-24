@@ -25,7 +25,7 @@ function Clear()
 
 function UpdateDisplay()
 {
-    if(secondNumber=="0")
+    if(typingFirst)
     {
         mainDisplay.textContent = firstNumber;
     }
@@ -105,9 +105,9 @@ function Answer(a,b,c)
     switch(c)
     {
         case '+':
-            return a+b;
+            return Math.round((a+b)*1000)/1000;
         case '-':
-            return a-b;
+            return Math.round((a-b)*1000)/1000;
         case 'X':
             return Math.round(a*b*1000)/1000;
         case '/':
