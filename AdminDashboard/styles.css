@@ -8,6 +8,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+:root
+{
+    --second-color: #709775;
+    --main-color: #4B4237;
+    --bg-color: #DDDDDD;
+}
+
 body
 {
     height: 100vh;
@@ -15,15 +22,20 @@ body
 
 .container
 {
-    background-color: lightblue;
-    width: 200px;
-    height: 100%;
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
+
+/*NAVBAR*/
 
 .navbar{
     width: 100%;
+    background-color: var(--main-color);
+    color: white;
+    width: 250px;
+    height: 100%;
+    z-index: 2;
 }
 
 .navbar > div
@@ -36,12 +48,19 @@ body
 .navbar-element > span
 {
     padding: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .navbar-element > p
 {
     font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-main
+{
+    margin-top: 30px;
 }
 
 .nav-main > p
@@ -52,4 +71,84 @@ body
 .nav-margin
 {
     margin-bottom: 30px;
+}
+
+/*TOP*/
+
+.main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top
+{
+    padding-top: 10px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 5fr 3fr;
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.img-container > img{
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+    display: block; 
+}
+
+.greeting
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+.profile
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-right: 100px;
+    gap: 30px;
+}
+
+.prof-summary
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 50px;
+    margin-left: 100px;
+}
+
+.buttons
+{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 50px;
+    margin-right: 100px;
+}
+
+.buttons > button
+{
+    outline: none;
+    border: none;
+    padding: 15px 35px;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+/*MAIN*/
+
+.stuff
+{
+    flex-grow: 1;
+    background-color: var(--bg-color);
 }
