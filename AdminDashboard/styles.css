@@ -36,6 +36,7 @@ body
     width: 250px;
     height: 100%;
     z-index: 2;
+    flex-shrink: 0;
 }
 
 .navbar > div
@@ -65,7 +66,12 @@ body
 
 .nav-main > p
 {
-    font-size: 24px;
+    font-size: 30px;
+}
+
+.nav-main > span
+{
+    font-size: 50px;
 }
 
 .nav-margin
@@ -83,7 +89,7 @@ body
 
 .top
 {
-    padding-top: 10px;
+    padding: 10px 0;
     display: grid;
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 5fr 3fr;
@@ -102,8 +108,8 @@ body
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-left: 150px;
-    font-size: 30px;
+    margin-left: 100px;
+    font-size: 24px;
 }
 
 .profile
@@ -114,6 +120,11 @@ body
     justify-content: right;
     margin-right: 100px;
     gap: 30px;
+}
+
+.notif > span
+{
+    font-size: 30px;
 }
 
 .prof-summary
@@ -151,4 +162,83 @@ body
 {
     flex-grow: 1;
     background-color: var(--bg-color);
+    display: flex;
+    flex-direction: row;
+}
+
+.projects
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects > h2
+{
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 36px;
+}
+
+.project-wrapper
+{
+    flex-grow: 1;
+    margin-top: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 0 25px 25px 25px;
+}
+
+.project-card
+{
+    display: flex;
+    justify-content: right;
+    background-color: var(--second-color);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.project-info
+{
+    width: 97%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info > h4
+{
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.icons
+{
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+}
+
+.icons > span
+{
+    padding: 8px;
+    font-size: 30px;
+}
+
+
+/*NEWS*/
+
+.news
+{
+    width: clamp(150px, 30%, 500px);
+    flex-shrink: 0;
+    border: 1px solid red;
 }
