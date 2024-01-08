@@ -12,7 +12,7 @@
 {
     --second-color: #709775;
     --main-color: #4B4237;
-    --bg-color: #DDDDDD;
+    --bg-color: #CCCCCC;
 }
 
 body
@@ -134,6 +134,7 @@ body
     justify-content: left;
     gap: 50px;
     margin-left: 100px;
+    margin-right: 10px;
 }
 
 .buttons
@@ -239,7 +240,92 @@ body
 
 .news
 {
-    width: clamp(150px, 30%, 500px);
+    width: clamp(150px, 30%, 400px);
     flex-shrink: 0;
-    border: 1px solid red;
+    display: grid;
+    grid-template-rows: 0.8fr 5fr 0.8fr 5fr;
+    grid-template-columns: 1fr;
 }
+
+.news > div
+{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2);
+    margin: 0px 25px 25px 0px;
+    padding: 30px 30px;
+}
+
+.news > h2
+{
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+.announcement-card
+{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.announcement
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top: 2px solid var(--second-color);
+}
+
+.announcement:last-of-type
+{
+    border-bottom: 2px solid var(--second-color);
+}
+
+.text > h5
+{
+    font-size: 20px;
+}
+
+.text > p
+{
+    word-break: break-word;
+}
+
+.trending-card
+{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+.trend > img
+{
+    margin-right: 10px;
+}
+
+.trend
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-top: 2px solid var(--second-color);
+}
+
+.trend:last-of-type
+{
+    border-bottom: 2px solid var(--second-color);
+}
+
+.person-desc > .adress
+{
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.person-desc > .appname
+{
+    font-size: 16px;
+}
+
