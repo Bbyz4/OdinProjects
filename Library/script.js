@@ -12,7 +12,18 @@ function Book(title, author, pages, isRead)
 function AddToLibrary(book)
 {
     library.push(book);
-    container.innerHTML = '';
+    DisplayLibrary();
+}
+
+function DeleteFromLibrary(index)
+{
+    library.splice(index, 1);
+    DisplayLibrary();
+}
+
+function ToggleStatus(index)
+{
+    library[index].isRead = !library[index].isRead;
     DisplayLibrary();
 }
 
@@ -22,6 +33,7 @@ addbook.addEventListener('click', () => {dialog.showModal()});
 
 function DisplayLibrary()
 {
+    container.innerHTML = '';
     library.forEach((book) => {
         const wrapper = document.createElement('div');
         wrapper.classList.add('book');
@@ -37,9 +49,12 @@ function DisplayLibrary()
         pa.innerText = book.pages + " pages";
         btns.classList.add('buttons');
         rd.classList.add('read');
-        rd.innerText = "READ";
+        rd.innerText = (book.isRead ? "READ" : "NOT READ");
+        rd.classList.add(book.isRead ? 'true' : 'false');
         rm.classList.add('remove');
-        rm.innerText = "REMOVE"
+        rm.innerText = "REMOVE";
+        rd.addEventListener('click', () => {ToggleStatus(library.indexOf(book))});
+        rm.addEventListener('click', () => {DeleteFromLibrary(library.indexOf(book))});
 
         btns.append(rd, rm);
         wrapper.append(ti, au, pa, btns);

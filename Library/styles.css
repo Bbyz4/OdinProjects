@@ -13,6 +13,7 @@
     --background-color: #DDDDDD;
     --main-color: #362C28;
     --read-color: #80F37C;
+    --notread-color: #F08484;
 }
 
 body
@@ -119,8 +120,17 @@ body
 
 .read
 {
-    background-color: var(--read-color);
     margin-bottom: 20px;
+}
+
+.true
+{
+    background-color: var(--read-color);
+}
+
+.false
+{
+    background-color: var(--notread-color);
 }
 
 .remove
