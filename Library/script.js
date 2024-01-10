@@ -17,7 +17,8 @@ function AddToLibrary(book)
 }
 
 const addbook = document.querySelector('#newbookbutton');
-addbook.addEventListener('click', () => {AddToLibrary(new Book("Hobbit", "Tolkien", 270, false))});
+const dialog = document.querySelector('dialog');
+addbook.addEventListener('click', () => {dialog.showModal()});
 
 function DisplayLibrary()
 {
@@ -46,6 +47,17 @@ function DisplayLibrary()
     });
 }
 
-//test
-AddToLibrary(new Book("How to win friends and influence people", "Dale Carnegie", 288, true));
-AddToLibrary(new Book("Atomic Habits", "James Clear", 420, false));
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    dialog.close();
+    const formData = Object.fromEntries(new FormData(form));
+    if(formData.wasRead == "on")
+    {
+        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, true));
+    }
+    else
+    {
+        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, false));
+    }
+})

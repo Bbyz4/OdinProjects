@@ -17,5 +17,26 @@
             
         </div>
     </div>
+        <dialog id="modal">
+            <div class="modal">
+            <h2>New book:</h2>
+            <form method="dialog" autocomplete="off">
+                <div class="userinput">
+                <label for="booktitle">Title:</label>
+                <input type="text" name="booktitle" id="booktitle">
+                </div><div class="userinput">
+                <label for="bookauthor">Author:</label>
+                <input type="text" name="bookauthor" id="bookauthor">
+                </div><div class="userinput">
+                <label for="bookpages">Pages:</label>
+                <input type="number" name="bookpages" id="bookpages">
+                </div><div class="box">
+                <label for="wasRead">Did you read it?</label>
+                <input type="checkbox" name="wasRead" id="wasRead" class="checkbox">
+                </div>
+                <button type="submit" formmethod="dialog">Add</button>
+            </form>
+            </div>
+        </dialog>
 </body>
 </html>
