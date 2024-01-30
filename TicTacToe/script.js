@@ -1,12 +1,16 @@
 const tiles = Array.from(document.querySelectorAll('.tile'));
-const newGameButton = document.querySelector('button');
-const score = document.querySelector('h2');
+const newGameButton = document.querySelector('.new');
+const resetButton = document.querySelector('.reset');
+const state = document.querySelector('h2');
+const score = document.querySelector('h3');
 
 function GameManager ()
 {
     let circlesTurn = true;
     let gameOver = false;
     let moveCount = 0;
+    let circlePoints = 0;
+    let crossPoints = 0;
 
     let CheckIfOver = (x) =>
     {
@@ -20,15 +24,22 @@ function GameManager ()
 
         if(gameOver)
         {
-            score.textContent = "Game Over, " + (circlesTurn ? "X" : "O") + " won!";
+            state.textContent = "Game Over, " + (circlesTurn ? "X" : "O") + " won!";
+            circlesTurn ? crossPoints++ : circlePoints++;
+            ScoreUpdate();
             return;
         }
 
         if(moveCount==9)
         {
             gameOver = true;
-            score.textContent = "It's a tie!";
+            state.textContent = "It's a tie!";
         }
+    }
+
+    let ScoreUpdate = () =>
+    {
+        score.textContent = "(O) " + circlePoints.toString() + " - " + crossPoints.toString() + " (X)";
     }
 
     const PlaceSymbol = (tile) =>
@@ -37,14 +48,14 @@ function GameManager ()
         {
             tile.textContent = circlesTurn ? "O" : "X";
             tile.classList.add(circlesTurn ? "circle" : "cross");
-            score.textContent = circlesTurn ? "X to move" : "O to move";
+            state.textContent = circlesTurn ? "X to move" : "O to move";
             circlesTurn = !circlesTurn;
             moveCount++;
             CheckIfOver(tiles.indexOf(tile));
         }
     };
 
-    const Restart = () =>
+    const NewGame = () =>
     {
         tiles.forEach((tile) => 
         {
@@ -54,10 +65,17 @@ function GameManager ()
         circlesTurn = true;
         gameOver = false;
         moveCount = 0;
-        score.textContent = "O to move";
+        state.textContent = "O to move";
     }
 
-    return {PlaceSymbol, Restart};
+    const Restart = () =>
+    {
+        circlePoints = 0;
+        crossPoints = 0;
+        ScoreUpdate();
+    }
+
+    return {PlaceSymbol, NewGame, Restart};
 }
 
 const manager = GameManager();
@@ -65,4 +83,5 @@ tiles.forEach((tile) =>
 {
     tile.addEventListener('click', () => {manager.PlaceSymbol(tile)});
 });
-newGameButton.addEventListener('click', () => {manager.Restart()});
+newGameButton.addEventListener('click', () => {manager.NewGame()});
+resetButton.addEventListener('click', () => {manager.Restart()});
