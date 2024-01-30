@@ -1,12 +1,19 @@
 const library = [];
 const container = document.querySelector('#bookcontainer');
 
-function Book(title, author, pages, isRead)
+// CONSTRUCTOR
+/*function Book(title, author, pages, isRead)
 {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+}*/
+
+// FACTORY FUNCTION
+function Book(title, author, pages, isRead)
+{
+    return {title,author,pages,isRead};
 }
 
 function AddToLibrary(book)
@@ -69,10 +76,12 @@ form.addEventListener('submit', (e) => {
     const formData = Object.fromEntries(new FormData(form));
     if(formData.wasRead == "on")
     {
-        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, true));
+        // WITH FACTORY FUNCTIONS, THE "NEW" KEYWORD IS NOT NEEDED
+        AddToLibrary(/*new*/Book(formData.booktitle, formData.bookauthor, formData.bookpages, true));
     }
     else
     {
-        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, false));
+        AddToLibrary(/*new*/Book(formData.booktitle, formData.bookauthor, formData.bookpages, false));
     }
+    form.reset();
 })
