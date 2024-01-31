@@ -11,9 +11,21 @@ const container = document.querySelector('#bookcontainer');
 }*/
 
 // FACTORY FUNCTION
-function Book(title, author, pages, isRead)
+/*function Book(title, author, pages, isRead)
 {
     return {title,author,pages,isRead};
+}*/
+
+// CLASS
+class Book
+{
+    constructor(title, author, pages, isRead)
+    {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
 }
 
 function AddToLibrary(book)
@@ -77,11 +89,11 @@ form.addEventListener('submit', (e) => {
     if(formData.wasRead == "on")
     {
         // WITH FACTORY FUNCTIONS, THE "NEW" KEYWORD IS NOT NEEDED
-        AddToLibrary(/*new*/Book(formData.booktitle, formData.bookauthor, formData.bookpages, true));
+        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, true));
     }
     else
     {
-        AddToLibrary(/*new*/Book(formData.booktitle, formData.bookauthor, formData.bookpages, false));
+        AddToLibrary(new Book(formData.booktitle, formData.bookauthor, formData.bookpages, false));
     }
     form.reset();
 })
