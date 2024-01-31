@@ -14,7 +14,6 @@ function GameManager ()
 
     let CheckIfOver = (x) =>
     {
-        console.log(x);
         let y = Math.floor(x/3) * 3;
         let z = x%3;
         if((tiles[y].textContent == tiles[y + 1].textContent) && (tiles[y].textContent == tiles[y + 2].textContent) && (tiles[y + 1].textContent == tiles[y + 2].textContent)) gameOver = true;
