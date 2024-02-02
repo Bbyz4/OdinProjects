@@ -2,7 +2,7 @@ const tiles = Array.from(document.querySelectorAll('.tile'));
 const newGameButton = document.querySelector('.new');
 const resetButton = document.querySelector('.reset');
 const state = document.querySelector('h2');
-const score = document.querySelector('h3');
+const score = document.querySelector('#scr');
 
 function GameManager ()
 {
@@ -38,7 +38,7 @@ function GameManager ()
 
     let ScoreUpdate = () =>
     {
-        score.textContent = "(O) " + circlePoints.toString() + " - " + crossPoints.toString() + " (X)";
+        score.textContent = circlePoints.toString() + " - " + crossPoints.toString();
     }
 
     const PlaceSymbol = (tile) =>
