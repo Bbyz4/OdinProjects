@@ -1,0 +1,1 @@
+(()=>{"use strict";document.getElementById("content").append(function(){let e=document.createElement("div");e.classList.add("card");let t=document.createElement("h2"),n=document.createElement("h2");return t.textContent="The best food in your neighbourhood",n.textContent="Visit us in one of our restaurants",e.append(t,n),e}())})();
