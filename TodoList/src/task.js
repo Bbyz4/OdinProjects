@@ -8,7 +8,7 @@ function Task(name)
         isDone = !isDone;
     }
 
-    return {ChangeStatus};
+    return {taskName, ChangeStatus};
 }
 
 export default Task;

@@ -1,11 +1,13 @@
 import List from "./list";
 
+const newTaskDialog = document.querySelector('#new-task');
 const newListDialog = document.querySelector('#new-list');
 const navbarMain = document.querySelector('.navbar-main');
 
 function ListManager()
 {
     const lists = [];
+    let selectedListIndex = null;
 
     let Initialize = () =>
     {
@@ -19,6 +21,14 @@ function ListManager()
             AddList(formData.listTitle);
             newListForm.reset();
         });
+        const newTaskForm = document.querySelector('#new-task-form');
+        newTaskForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            newTaskDialog.close();
+            const formData = Object.fromEntries(new FormData(newTaskForm));
+            lists[selectedListIndex].AddTask(formData.taskTitle);
+            newTaskForm.reset();
+        });
 
         DisplayAllLists();
     }
@@ -26,11 +36,16 @@ function ListManager()
     let AddList = (name) =>
     {
         lists.push(List(name));
+        selectedListIndex = lists.length-1;
         DisplayAllLists();
     }
 
     let DeleteList = (index) =>
     {
+        if(index==selectedListIndex)
+        {
+            selectedListIndex = 0;
+        }
         lists.splice(index,1);
         DisplayAllLists();
     }
@@ -42,6 +57,10 @@ function ListManager()
         {
             list.DisplayMain(navbarMain, DeleteList, index);
         })
+        if(lists.length>0)
+        {
+            lists[selectedListIndex].DisplayTasks();
+        }
     }
 
     return {Initialize, AddList, DeleteList, DisplayAllLists};
@@ -52,5 +71,3 @@ LM.Initialize();
 LM.AddList("Default");
 
 //testing
-LM.AddList("AAA");
-LM.AddList("BBB");

@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="view">
-            <h2>List name: </h2>
+            <h2 class="list-name">List name: </h2>
             <div class="view-main">
 
             </div>
@@ -39,8 +39,20 @@
             <h3>Add a new list:</h3>
             <form method="dialog" autocomplete="off" id="new-list-form">
                 <div class="new-list-input">
-                    <label for="list-title">Title: </label>
+                    <label for="listTitle">Title: </label>
                     <input type="text" name="listTitle" id="listTitle">
+                </div>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </dialog>
+    <dialog id="new-task">
+        <div class="new-task">
+            <h3>Add a new task:</h3>
+            <form method="dialog" autocomplete="off" id="new-task-form">
+                <div class="new-task-input">
+                    <label for="taskTitle">Name: </label>
+                    <input type="text" name="taskTitle" id="taskTitle">
                 </div>
                 <button type="submit">Add</button>
             </form>

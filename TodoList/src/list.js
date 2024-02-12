@@ -1,5 +1,9 @@
 import Task from "./task";
 
+const newTaskDialog = document.querySelector('#new-task');
+const listNameDisplay = document.querySelector('.list-name');
+const viewMain = document.querySelector('.view-main');
+
 function List(name)
 {
     let listName = name;
@@ -7,7 +11,9 @@ function List(name)
 
     let AddTask = (name) =>
     {
-        //adding
+        tasks.push(Task(name));
+        console.log(name, listName);
+        DisplayTasks();
     }
 
     let DeleteTask = (name) =>
@@ -39,7 +45,28 @@ function List(name)
         navbarMain.append(container);
     }
 
-    return {AddTask, DeleteTask, DisplayMain};
+    let DisplayTasks = () => 
+    {
+        viewMain.innerHTML = "";
+        listNameDisplay.innerText = listName
+        tasks.forEach((task) => 
+        {
+            let container = document.createElement('div');
+            container.classList.add('taskcontainer');
+            let taskTitle = document.createElement('p');
+            taskTitle.innerText = task.taskName;
+            viewMain.append(container);
+        });
+        let emptyContainer = document.createElement('div');
+        emptyContainer.classList.add('emptytaskcontainer');
+        let newTaskButton = document.createElement('button');
+        newTaskButton.innerText = "+";
+        emptyContainer.append(newTaskButton);
+        newTaskButton.addEventListener('click', () => newTaskDialog.showModal());
+        viewMain.append(emptyContainer);
+    }
+
+    return {AddTask, DeleteTask, DisplayMain, DisplayTasks};
 }
 
 export default List;
