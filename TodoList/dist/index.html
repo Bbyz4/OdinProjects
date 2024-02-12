@@ -19,7 +19,7 @@
         <div class="navbar">
             <div class="navbar-top">
                 <h2>Task lists: </h2>
-                <button><span class="material-symbols-outlined">
+                <button id="new-list-button"><span class="material-symbols-outlined">
                     add
                     </span></button>
             </div>
@@ -30,9 +30,21 @@
         <div class="view">
             <h2>List name: </h2>
             <div class="view-main">
-                
+
             </div>
         </div>
     </div>
+    <dialog id="new-list">
+        <div class="new-list">
+            <h3>Add a new list:</h3>
+            <form method="dialog" autocomplete="off" id="new-list-form">
+                <div class="new-list-input">
+                    <label for="list-title">Title: </label>
+                    <input type="text" name="listTitle" id="listTitle">
+                </div>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </dialog>
 </body>
 </html>

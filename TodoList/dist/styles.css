@@ -72,6 +72,7 @@ body
 .navbar-top > h2
 {
     margin-left: 20px;
+    font-size: 24px;
 }
 
 .navbar-top > button
@@ -94,7 +95,73 @@ body
     flex-direction: column;
 }
 
+.view > h2
+{
+    font-size: 28px;
+}
+
 .view-main
 {
     flex-grow: 1;
+}
+
+#new-list
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: -150px;
+    border: 2px solid var(--side-color);
+    background-color: var(--main-color);
+    color: var(--side-color);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.new-list
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.new-list > h3
+{
+    font-size: 24px;
+}
+
+#new-list-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#new-list-form > button
+{
+    padding: 10px 0px;
+    background-color: var(--side-color);
+    color: var(--main-color);
+    border: 0;
+    border-radius: 10px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.new-list-input > input
+{
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid var(--side-color);
+}
+
+.new-list-input > label
+{
+    font-size: 18px;
 }
