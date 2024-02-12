@@ -29,18 +29,28 @@ function ListManager()
         DisplayAllLists();
     }
 
+    let DeleteList = (index) =>
+    {
+        lists.splice(index,1);
+        DisplayAllLists();
+    }
+
     let DisplayAllLists = () =>
     {
         navbarMain.innerHTML = "";
-        lists.forEach((list) => 
+        lists.forEach((list, index) => 
         {
-            list.DisplayMain(navbarMain);
+            list.DisplayMain(navbarMain, DeleteList, index);
         })
     }
 
-    return {Initialize, AddList, DisplayAllLists};
+    return {Initialize, AddList, DeleteList, DisplayAllLists};
 }
 
 const LM = ListManager();
 LM.Initialize();
 LM.AddList("Default");
+
+//testing
+LM.AddList("AAA");
+LM.AddList("BBB");

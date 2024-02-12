@@ -12,6 +12,7 @@
 {
     --background-color: #FFF8F0;
     --main-color: #F5F8DE;
+    --main-color-darkened: #D5D8BE;
     --side-color: #32292F;
 }
 
@@ -67,6 +68,9 @@ body
     justify-content: space-between;
     color: var(--side-color);
     padding-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--side-color);
+    margin-bottom: 20px;
 }
 
 .navbar-top > h2
@@ -83,7 +87,15 @@ body
     font-size: 20px;
     font-weight: bold;
     width: 30px;
-    height: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-top > button:hover
+{
+    background-color: var(--main-color-darkened);
 }
 
 .view
@@ -164,4 +176,50 @@ body
 .new-list-input > label
 {
     font-size: 18px;
+}
+
+.navbar-main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listcontainer
+{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    font-size: 20px;
+}
+
+.listcontainer > div > button
+{
+    width: 30px;
+    height: 30px;
+    background-color: var(--side-color);
+    color: var(--main-color);
+    border: 0;
+    margin-right: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listcontainer > div > button:hover
+{
+    color: var(--main-color-darkened);
+}
+
+.listcontainer > div
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px
 }
