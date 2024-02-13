@@ -13,20 +13,22 @@ function List(name)
     {
         tasks.push(Task(name));
         console.log(name, listName);
-        DisplayTasks();
+        DisplayAllTasks();
     }
 
-    let DeleteTask = (name) =>
+    let DeleteTask = (index) =>
     {
-        //deleting
+        tasks.splice(index,1);
+        DisplayAllTasks();
     }
 
-    let DisplayMain = (navbarMain, DeleteList, listID) =>
+    let DisplayMain = (navbarMain, DeleteList, ChangeSelectedList, listID) =>
     {
         let container = document.createElement('div');
         container.classList.add('listcontainer');
         let listText = document.createElement('p');
         listText.innerText = listName;
+
         let listDeleteButton = document.createElement('button');
         listDeleteButton.innerHTML = `<span class="material-symbols-outlined">
         delete
@@ -38,6 +40,9 @@ function List(name)
         listEditButton.innerHTML = `<span class="material-symbols-outlined">
         edit
         </span>`;
+        listEditButton.addEventListener('click', () => {
+            ChangeSelectedList(listID);
+        })
 
         let listButtons = document.createElement('div');
         listButtons.append(listEditButton, listDeleteButton);
@@ -45,17 +50,13 @@ function List(name)
         navbarMain.append(container);
     }
 
-    let DisplayTasks = () => 
+    let DisplayAllTasks = () => 
     {
         viewMain.innerHTML = "";
         listNameDisplay.innerText = listName
         tasks.forEach((task) => 
         {
-            let container = document.createElement('div');
-            container.classList.add('taskcontainer');
-            let taskTitle = document.createElement('p');
-            taskTitle.innerText = task.taskName;
-            viewMain.append(container);
+            task.DisplayTask(viewMain, DeleteTask);
         });
         let emptyContainer = document.createElement('div');
         emptyContainer.classList.add('emptytaskcontainer');
@@ -66,7 +67,7 @@ function List(name)
         viewMain.append(emptyContainer);
     }
 
-    return {AddTask, DeleteTask, DisplayMain, DisplayTasks};
+    return {AddTask, DeleteTask, DisplayMain, DisplayAllTasks};
 }
 
 export default List;

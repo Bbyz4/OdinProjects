@@ -50,16 +50,25 @@ function ListManager()
         DisplayAllLists();
     }
 
+    let ChangeSelectedList = (index) =>
+    {
+        if(index!=selectedListIndex)
+        {
+            selectedListIndex = index;
+            DisplayAllLists();
+        }
+    }
+
     let DisplayAllLists = () =>
     {
         navbarMain.innerHTML = "";
         lists.forEach((list, index) => 
         {
-            list.DisplayMain(navbarMain, DeleteList, index);
+            list.DisplayMain(navbarMain, DeleteList, ChangeSelectedList ,index);
         })
         if(lists.length>0)
         {
-            lists[selectedListIndex].DisplayTasks();
+            lists[selectedListIndex].DisplayAllTasks();
         }
     }
 

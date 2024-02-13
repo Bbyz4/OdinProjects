@@ -8,7 +8,17 @@ function Task(name)
         isDone = !isDone;
     }
 
-    return {taskName, ChangeStatus};
+    let DisplayTask = (viewMain, DeleteTask) =>
+    {
+        let container = document.createElement('div');
+        container.classList.add('taskcontainer');
+        let taskTitle = document.createElement('p');
+        taskTitle.innerText = taskName;
+        container.append(taskTitle);
+        viewMain.append(container);
+    }
+
+    return {taskName, ChangeStatus, DisplayTask};
 }
 
 export default Task;
