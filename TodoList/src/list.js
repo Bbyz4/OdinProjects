@@ -67,9 +67,6 @@ function List(name)
         viewMain.append(emptyContainer);
     }
 
-    //testing
-    AddTask("Test");
-
     return {AddTask, DeleteTask, DisplayMain, DisplayAllTasks};
 }
 

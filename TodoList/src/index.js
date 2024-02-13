@@ -89,5 +89,3 @@ function ListManager()
 const LM = ListManager();
 LM.Initialize();
 LM.AddList("Default");
-
-//testing
