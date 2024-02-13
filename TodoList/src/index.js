@@ -3,6 +3,8 @@ import List from "./list";
 const newTaskDialog = document.querySelector('#new-task');
 const newListDialog = document.querySelector('#new-list');
 const navbarMain = document.querySelector('.navbar-main');
+const viewMain = document.querySelector('.view-main');
+const listNameDisplay = document.querySelector('.list-name');
 
 function ListManager()
 {
@@ -46,6 +48,10 @@ function ListManager()
         {
             selectedListIndex = 0;
         }
+        else if(index < selectedListIndex)
+        {
+            selectedListIndex--;
+        }
         lists.splice(index,1);
         DisplayAllLists();
     }
@@ -69,6 +75,11 @@ function ListManager()
         if(lists.length>0)
         {
             lists[selectedListIndex].DisplayAllTasks();
+        }
+        else
+        {
+            viewMain.innerHTML = "";
+            listNameDisplay.innerText = "Create a list";
         }
     }
 

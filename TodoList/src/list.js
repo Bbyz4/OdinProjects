@@ -54,9 +54,9 @@ function List(name)
     {
         viewMain.innerHTML = "";
         listNameDisplay.innerText = listName
-        tasks.forEach((task) => 
+        tasks.forEach((task, index) => 
         {
-            task.DisplayTask(viewMain, DeleteTask);
+            task.DisplayTask(viewMain, DeleteTask, index, DisplayAllTasks);
         });
         let emptyContainer = document.createElement('div');
         emptyContainer.classList.add('emptytaskcontainer');
@@ -66,6 +66,9 @@ function List(name)
         newTaskButton.addEventListener('click', () => newTaskDialog.showModal());
         viewMain.append(emptyContainer);
     }
+
+    //testing
+    AddTask("Test");
 
     return {AddTask, DeleteTask, DisplayMain, DisplayAllTasks};
 }
